@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import Dialer from './Dialer';
+import Dialer from '../Dialer';
+import ContactsList from './contactsList';
 
 // Sample contact data
 const contactData = [
@@ -103,39 +104,14 @@ export default function Contacts() {
       {/* Dialer Button */}
       <TouchableOpacity
         style={styles.dialerButton}
-        onPress={() => navigation.navigate("Dialer")}>
+        onPress={() => navigation.navigate(Dialer)}>
         <Ionicons name="keypad" size={24} color="white" />
       </TouchableOpacity>
     </View>
   );
 }
 
-const ContactsList = ({data}) => {
-  // Contact List Item Component
-  const ContactItem = ({contactData}) => {
-    const navigation = useNavigation();
-    return (
-      <TouchableOpacity
-        style={styles.contactItem}
-        onPress={() => navigation.navigate("Details", {contact: contactData})}>
-        {contactData.img ? (
-          <Image source={contactData.img} style={styles.contactImage} />
-        ) : (
-          <Ionicons name="person-circle-outline" size={45} color="#7e5ff2" />
-        )}
-        <Text style={styles.contactName}>{contactData.name}</Text>
-      </TouchableOpacity>
-    );
-  };
-  return (
-    <FlatList
-      data={data}
-      keyExtractor={item => item.id}
-      renderItem={({item}) => <ContactItem contactData={item} />}
-      contentContainerStyle={styles.contactList}
-    />
-  );
-};
+
 
 const RecentsList = () => {
   return (

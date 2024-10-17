@@ -11,6 +11,8 @@ export default function Details({ route }) {
     organization: 'A2 Creative Designers',
   };
 
+  console.log('contact: ',contact)
+
   const dialNumber = (number) => {
     Linking.openURL(`tel:${number}`);
   };
@@ -26,7 +28,12 @@ export default function Details({ route }) {
         </View>
       </View>
       <View style={styles.profileContainer}>
-        <Image source={contact.img} style={styles.profileImage} />
+      {contact.img ? (
+          <Image source={contact.img} style={styles.profileImage} />
+        ) : (
+          <Ionicons name="person-circle-outline" size={200} color="#7e5ff2" />
+        )}
+        {/* <Image source={contact.img} style={styles.profileImage} /> */}
         <Text style={styles.name}>{contact.name}</Text>
         <Text style={styles.role}>{contact.role} at </Text>
         <Text style={styles.role}>{contact.organization}</Text>
