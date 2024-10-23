@@ -14,6 +14,11 @@ import COLORS from '../utilities/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Linking} from 'react-native';
 import Output from './Output';
+import {
+  widthPercentageToDP as responsiveWidth,
+  heightPercentageToDP as responsiveHeight,
+  responsiveFont,
+} from 'react-native-responsive-hook';
 
 // Sample contact data
 const contactData = [
@@ -314,7 +319,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   iconMargin: {
-    marginHorizontal: 16,
+    marginHorizontal: responsiveWidth(1),
   },
   filterContainer: {
     flexDirection: 'row',
@@ -346,13 +351,13 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   contactName: {
-    marginLeft: 16,
-    fontSize: 20,
+    marginLeft: responsiveWidth(5),
+    fontSize: responsiveFont(3),
     color: COLORS.primary,
   },
   contactImage: {
-    width: 40,
-    height: 40,
+    width: responsiveHeight(5),
+    height: responsiveHeight(5),
     borderRadius: 10,
   },
   dialerButton: {
