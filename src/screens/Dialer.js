@@ -8,6 +8,7 @@ import {
   Image,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import COLORS from '../utilities/colors';
 
 const contacts = [
   {id: '1', name: 'Ali Haider', time: '2 minutes ago', sim: 'SIM 2'},
@@ -28,12 +29,12 @@ const Dialer = () => {
       {item.img ? (
         <Image source={item.img} style={styles.avatar} />
       ) : (
-        <Ionicons name="person-circle-outline" size={45} color="#7e5ff2" />
+        <Ionicons name="person-circle-outline" size={45} color={COLORS.secondary} />
       )}
       <View style={styles.contactInfo}>
         <Text style={styles.contactName}>{item.name}</Text>
         <View style={{flexDirection: 'row', marginLeft: 16}}>
-          <Ionicons name="call" size={16} color="red" />
+          <Ionicons name="call" size={16} color={COLORS.red} />
           <Text style={styles.timeText}>{item.time}</Text>
           <Text style={styles.simInfo}>{item.sim}</Text>
         </View>
@@ -73,7 +74,7 @@ const Dialer = () => {
           <TouchableOpacity
             onPress={handleBackspace}
             style={styles.backspaceButton}>
-            <Ionicons name="backspace-outline" size={30} color="#4a4a7a" />
+            <Ionicons name="backspace-outline" size={30} color={COLORS.primary} />
           </TouchableOpacity>
         </View>
 
@@ -94,7 +95,7 @@ const Dialer = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, padding: 20, backgroundColor: '#fff'},
+  container: {flex: 1, padding: 20, backgroundColor: COLORS.white},
   contactList: {flex: 1},
   contactRow: {flexDirection: 'row', alignItems: 'center', marginVertical: 10},
   contactItem: {
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#f1f1f1',
+    borderBottomColor: COLORS.white,
   },
   avatar: {
     width: 40,
@@ -119,21 +120,21 @@ const styles = StyleSheet.create({
   contactName: {
     marginLeft: 16,
     fontSize: 20,
-    color: '#1C008A',
+    color: COLORS.primary,
   },
   timeText: {
-    color: '#a3a3c2',
+    color: COLORS.grey,
     fontSize: 15,
   },
   simInfo: {
-    color: '#4caf50',
+    color: COLORS.green,
     fontSize: 11,
     fontWeight: 'bold',
     marginLeft: 6,
   },
 
   keypadContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -144,13 +145,13 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: '#f1f1f9',
+    backgroundColor: COLORS.light,
     borderRadius: 10,
     marginBottom: 20,
   },
   displayText: {
     fontSize: 24,
-    color: '#4a4a7a',
+    color: COLORS.primary,
     fontWeight: 'bold',
     flex: 1,
   },
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     width: '100%',
-    backgroundColor: '#f1f1f9',
+    backgroundColor: COLORS.light,
   },
   keypadButton: {
     width: '30%',
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
   },
   keypadText: {
     fontSize: 40,
-    color: '#4a4a7a',
+    color: COLORS.primary,
     fontWeight: 'bold',
   },
 });
