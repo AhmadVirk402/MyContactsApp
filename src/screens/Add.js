@@ -12,25 +12,42 @@ const Stack = createStackNavigator();
 
 
 // Screen for input
-const Add = ({ navigation }) => {
+const Add = (props) => {
+  const { navigation,route }=props
+
+  const handleAddContact=route?.params?.addContact||null
+
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
 
+
   const handleSave = async () => {
     try {
-      const data = {
-        input1: input1,
-        input2: input2,
-      };
-      await AsyncStorage.setItem('userInputs', JSON.stringify(data));
-      navigation.navigate('Output');
+      const name=input1
+      const number=input2
+      handleAddContact&&handleAddContact(name,number)
+      navigation.goBack()
     } catch (error) {
       console.error(error);
     }
   };
 
+  // const handleSave = async () => {
+  //   try {
+  //     const data = {
+  //       input1: input1,
+  //       input2: input2,
+  //     };
+  //     await AsyncStorage.setItem('userInputs', JSON.stringify(data));
+  //     navigation.navigate('Output');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   return (
     <View style={styles.container}>
+      <View style={{height:30}}/>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Ionicons name="arrow-back" size={30} color={COLORS.secondary} onPress={() => navigation.goBack(Contacts)} />
         <View style={{ flexDirection: 'row', }}>

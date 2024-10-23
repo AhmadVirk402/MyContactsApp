@@ -1,4 +1,3 @@
-import { green } from "react-native-reanimated/lib/typescript/Colors";
 
 const COLORS = {
     white: '#FFF',
