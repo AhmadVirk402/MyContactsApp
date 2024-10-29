@@ -13,7 +13,11 @@ import {useNavigation} from '@react-navigation/native';
 import COLORS from '../utilities/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Linking} from 'react-native';
-import Output from './Output';
+import {
+  widthPercentageToDP as responsiveWidth,
+  heightPercentageToDP as responsiveHeight,
+  responsiveFont,
+} from 'react-native-responsive-hook';
 
 // Sample contact data
 const contactData = [
@@ -295,36 +299,36 @@ const Header = ({onPressAdd}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 25,
+    padding: responsiveHeight(4),
     backgroundColor: COLORS.white,
-    paddingTop: 40,
+    paddingTop: responsiveHeight(6),
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: responsiveHeight(2),
   },
   headerTitle: {
-    fontSize: 34,
+    fontSize: responsiveFont(40),
     color: COLORS.primary,
-    fontWeight: 'bold',
+     fontFamily:'Roboto-Bold'
   },
   headerIcons: {
     flexDirection: 'row',
   },
   iconMargin: {
-    marginHorizontal: 16,
+    marginHorizontal: responsiveWidth(3),
   },
   filterContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginBottom: responsiveHeight(2),
   },
   filterButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderRadius: 10,
+    paddingHorizontal: responsiveWidth(4),
+    paddingVertical: responsiveHeight(1.75),
+    borderRadius: responsiveHeight(1.5),
     backgroundColor: COLORS.light,
   },
   activeFilter: {
@@ -335,64 +339,69 @@ const styles = StyleSheet.create({
   },
   filterText: {
     color: COLORS.white,
-    fontSize: 16,
+    fontSize: responsiveFont(16),
+     fontFamily:'Roboto-Regular'
   },
   contactList: {
-    marginBottom: -15,
+    marginBottom: responsiveHeight(-1),
   },
   contactItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: responsiveHeight(1.5),
   },
   contactName: {
-    marginLeft: 16,
-    fontSize: 20,
+    marginLeft: responsiveWidth(4),
+    fontSize: responsiveFont(20),
     color: COLORS.primary,
+     fontFamily:'Roboto-Regular'
   },
   contactImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
+    width: responsiveWidth(10),
+    height: responsiveHeight(5),
+    borderRadius: responsiveHeight(3),
   },
   dialerButton: {
     position: 'absolute',
-    bottom: 30,
-    right: 20,
+    bottom: responsiveHeight(5),
+    right: responsiveWidth(5),
     backgroundColor: COLORS.secondary,
-    borderRadius: 7,
-    padding: 16,
+    borderRadius: responsiveHeight(1),
+    padding: responsiveHeight(2),
     justifyContent: 'center',
     alignItems: 'center',
   },
   simInfo: {
     color: COLORS.green,
-    fontSize: 11,
+    fontSize: responsiveFont(11),
     fontWeight: 'bold',
-    marginLeft: 6,
+    marginLeft: responsiveWidth(2),
+     fontFamily:'Roboto-Regular'
   },
   timeText: {
     color: COLORS.grey,
-    fontSize: 15,
+    fontSize: responsiveFont(15),
+     fontFamily:'Roboto-Regular'
   },
   contactItems: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: responsiveHeight(1.5),
     justifyContent: 'space-between',
   },
   contactName: {
-    fontSize: 20,
+    fontSize: responsiveFont(20),
     color: COLORS.primary,
     flex: 1,
-    marginLeft: 16,
+    marginLeft: responsiveWidth(4),
+     fontFamily:'Roboto-Regular'
   },
   contactIcon: {
-    width: 40,
-    height: 40,
+    width: responsiveWidth(10),
+    height: responsiveHeight(5),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLORS.light,
-    borderRadius: 50,
+    borderRadius: responsiveHeight(5),
   },
 });

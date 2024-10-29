@@ -6,7 +6,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import COLORS from '../utilities/colors';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Contacts from './Contacts';
-
+import {
+  widthPercentageToDP as responsiveWidth,
+  heightPercentageToDP as responsiveHeight,
+  responsiveFont,
+} from 'react-native-responsive-hook';
 const Stack = createStackNavigator();
 
 
@@ -47,7 +51,7 @@ const Add = (props) => {
 
   return (
     <View style={styles.container}>
-      <View style={{height:30}}/>
+      <View style={{height:responsiveHeight(4)}}/>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Ionicons name="arrow-back" size={30} color={COLORS.secondary} onPress={() => navigation.goBack(Contacts)} />
         <View style={{ flexDirection: 'row', }}>
@@ -86,21 +90,23 @@ const Add = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 26,
+    padding: responsiveHeight(3),
     backgroundColor: COLORS.white,
   },
   headerTitle: {
-    fontSize: 30,
+    fontSize: responsiveFont(30),
     color: COLORS.primary,
-    fontWeight: 'bold',
+    
+    fontFamily:'Roboto-Bold',
   },
   inputText: {
     borderWidth: 1,
-    marginBottom: 10,
-    padding: 5,
-    borderRadius:10,
+    marginBottom: responsiveHeight(4),
+    padding: responsiveHeight(1),
+    borderRadius:responsiveHeight(1.5),
     borderColor:COLORS.grey,
-    height:60,
+    fontFamily:'Roboto-Italic',
+    height:responsiveHeight(8),
 
   }
 

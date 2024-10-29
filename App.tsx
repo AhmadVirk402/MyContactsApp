@@ -8,7 +8,6 @@ import Contacts from './src/screens/Contacts';
 import Details from './src/screens/Details';
 import Dialer from './src/screens/Dialer';
 import Add from './src/screens/Add';
-import Output from './src/screens/Output';
 
 
 
@@ -24,7 +23,6 @@ function App() {
         <Stack.Screen name="Details" component={Details} />
         <Stack.Screen name="Dialer" component={Dialer} />
         <Stack.Screen name="Add" component={Add} />
-        <Stack.Screen name="Output" component={Output} />
 
       </Stack.Navigator>
     </NavigationContainer>

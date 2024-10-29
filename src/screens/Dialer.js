@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState } from 'react';
 import {
   View,
   Text,
@@ -9,9 +9,14 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import COLORS from '../utilities/colors';
+import {
+  widthPercentageToDP as responsiveWidth,
+  heightPercentageToDP as responsiveHeight,
+  responsiveFont,
+} from 'react-native-responsive-hook';
 
 const contacts = [
-  {id: '1', name: 'Ali Haider', time: '2 minutes ago', sim: 'SIM 2'},
+  { id: '1', name: 'Ali Haider', time: '2 minutes ago', sim: 'SIM 2' },
   {
     id: '2',
     name: 'Bilal Mustafa',
@@ -19,12 +24,12 @@ const contacts = [
     time: '2 minutes ago',
     sim: 'SIM 2',
   },
-  {id: '3', name: 'Qasim Ali', time: '2 minutes ago', sim: 'SIM 1'},
-  {id: '4', name: 'Talha Khalid', time: '2 minutes ago', sim: 'SIM 2'},
+  { id: '3', name: 'Qasim Ali', time: '2 minutes ago', sim: 'SIM 1' },
+  { id: '4', name: 'Talha Khalid', time: '2 minutes ago', sim: 'SIM 2' },
 ];
 
 const Dialer = () => {
-  const renderContactItem = ({item}) => (
+  const renderContactItem = ({ item }) => (
     <View style={styles.contactItem}>
       {item.img ? (
         <Image source={item.img} style={styles.avatar} />
@@ -33,7 +38,7 @@ const Dialer = () => {
       )}
       <View style={styles.contactInfo}>
         <Text style={styles.contactName}>{item.name}</Text>
-        <View style={{flexDirection: 'row', marginLeft: 16}}>
+        <View style={{ flexDirection: 'row', marginLeft: responsiveWidth(4) }}>
           <Ionicons name="call" size={16} color={COLORS.red} />
           <Text style={styles.timeText}>{item.time}</Text>
           <Text style={styles.simInfo}>{item.sim}</Text>
@@ -95,42 +100,55 @@ const Dialer = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, padding: 20, backgroundColor: COLORS.white},
-  contactList: {flex: 1},
-  contactRow: {flexDirection: 'row', alignItems: 'center', marginVertical: 10},
+  container: {
+    flex: 1,
+    padding: responsiveHeight(2),
+    backgroundColor: COLORS.white
+  },
+  contactList: {
+    flex: 1
+  },
+  contactRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: responsiveHeight(1)
+  },
   contactItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
+    paddingVertical: responsiveHeight(1.5),
+    borderBottomWidth: responsiveWidth(.4),
     borderBottomColor: COLORS.white,
   },
   avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: responsiveWidth(10),
+    height: responsiveHeight(5),
+    borderRadius: responsiveHeight(3),
   },
   contactList: {
-    marginBottom: 16,
+    marginBottom: responsiveHeight(3),
   },
   contactInfo: {
     flex: 1,
-    marginLeft: 15,
+    marginLeft: responsiveWidth(4),
   },
   contactName: {
-    marginLeft: 16,
-    fontSize: 20,
+    marginLeft: responsiveWidth(4),
+    fontSize: responsiveFont(20),
     color: COLORS.primary,
+    fontFamily:'Roboto-Regular'
   },
   timeText: {
     color: COLORS.grey,
-    fontSize: 15,
+    fontSize: responsiveFont(15),
+     fontFamily:'Roboto-Regular'
   },
   simInfo: {
     color: COLORS.green,
-    fontSize: 11,
+    fontSize: responsiveFont(11),
     fontWeight: 'bold',
-    marginLeft: 6,
+    marginLeft: responsiveWidth(2),
+     fontFamily:'Roboto-Regular'
   },
 
   keypadContainer: {
@@ -142,40 +160,41 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    width: responsiveWidth(90),
+    paddingHorizontal: responsiveWidth(5),
+    paddingVertical: responsiveHeight(1.5),
     backgroundColor: COLORS.light,
-    borderRadius: 10,
-    marginBottom: 20,
+    borderRadius: responsiveHeight(1),
+    marginBottom: responsiveHeight(2),
   },
   displayText: {
-    fontSize: 24,
+    fontSize: responsiveFont(24),
     color: COLORS.primary,
     fontWeight: 'bold',
     flex: 1,
+     fontFamily:'Roboto-Regular'
   },
   backspaceButton: {
-    paddingHorizontal: 10,
+    paddingHorizontal: responsiveWidth(3),
   },
   keypad: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    width: '100%',
+    width: responsiveWidth(90),
     backgroundColor: COLORS.light,
   },
   keypadButton: {
     width: '30%',
-    height: 80,
+    height: responsiveHeight(11),
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 5,
+    margin: responsiveHeight(.5),
   },
   keypadText: {
-    fontSize: 40,
+    fontSize: responsiveFont(40),
     color: COLORS.primary,
-    fontWeight: 'bold',
+     fontFamily:'Roboto-Bold'
   },
 });
 

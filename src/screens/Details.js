@@ -3,6 +3,11 @@ import { View, Text, Linking, StyleSheet, Image, TouchableOpacity } from 'react-
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import COLORS from '../utilities/colors';
+import {
+  widthPercentageToDP as responsiveWidth,
+  heightPercentageToDP as responsiveHeight,
+  responsiveFont,
+} from 'react-native-responsive-hook';
 export default function Details({ route }) {
   // Check if route.params is undefined or contact is missing
   const contact = route?.params?.contact || {
@@ -36,7 +41,6 @@ export default function Details({ route }) {
         )}
         {/* <Image source={contact.img} style={styles.profileImage} /> */}
         <Text style={styles.name}>{contact.name}</Text>
-        <Text style={styles.role}>{contact.role} at </Text>
         <Text style={styles.role}>{contact.organization}</Text>
       </View>
 
@@ -86,64 +90,71 @@ export default function Details({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 26,
-    paddingTop:40,
+    padding: responsiveHeight(4),
+    paddingTop:responsiveHeight(6),
     backgroundColor: COLORS.white,
   },
   profileContainer: {
     alignItems: 'center',
-    marginVertical: 40
+    marginVertical: responsiveHeight(5)
   },
   profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 20
+    width: responsiveWidth(37.5),
+    height: responsiveHeight(20),
+    borderRadius: responsiveHeight(3)
   },
   name: {
-    fontSize: 25,
-    fontWeight: 'bold',
+    fontSize: responsiveFont(25),
     color: COLORS.primary,
-    marginTop: 10
+    textAlign:'center',
+    marginTop: responsiveHeight(3),
+     fontFamily:'Roboto-Bold'
   },
   role: {
-    fontSize: 20,
-    color: COLORS.primary
+    fontSize: responsiveFont(20),
+    color: COLORS.primary,
+     fontFamily:'Roboto-Regular'
   },
   contactInfo: {
     backgroundColor:COLORS.light,
-    padding:10,
-    borderRadius:10,
+    padding:responsiveHeight(3),
+    borderRadius:responsiveHeight(1),
   },
   phoneRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 5,
+    paddingVertical: responsiveHeight(0.5),
   },
   phoneText: {
-    fontSize: 20,
+    fontSize: responsiveFont(20),
     color: COLORS.primary,
-    fontWeight:'bold'
+     fontFamily:'Roboto-Bold'
   },
   phoneLabel: {
-    fontSize: 17,
-    color: COLORS.primary
+    fontSize: responsiveFont(17),
+    color: COLORS.primary,
+     fontFamily:'Roboto-Regular'
   },
   organizationInfo: {
-    marginTop: 0,
+    marginTop:responsiveHeight(0),
+     fontFamily:'Roboto-Regular'
 
   },
   label: {
-    fontSize: 20,
+    fontSize:responsiveFont(20),
     fontWeight: 'bold',
-    color:COLORS.primary
+    color:COLORS.primary,
+     fontFamily:'Roboto-Regular'
   },
   text: {
-    fontSize: 16,
-    marginTop: 5,
-    color:COLORS.primary
+    fontSize: responsiveFont(16),
+    marginTop: responsiveHeight(.5),
+    color:COLORS.primary,
+     fontFamily:'Roboto-Regular',
   },
   workDescription: {
-    marginTop: 20
+    marginTop: responsiveHeight(3),
+     fontFamily:'Roboto-Regular',
   },
 });
