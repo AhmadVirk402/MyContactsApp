@@ -8,6 +8,8 @@ import {
   heightPercentageToDP as responsiveHeight,
   responsiveFont,
 } from 'react-native-responsive-hook';
+import Fonts from '../utilities/fonts';
+
 export default function Details({ route }) {
   // Check if route.params is undefined or contact is missing
   const contact = route?.params?.contact || {
@@ -108,12 +110,12 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     textAlign:'center',
     marginTop: responsiveHeight(3),
-     fontFamily:'Roboto-Bold'
+     fontFamily:Fonts.RobotoBold,
   },
   role: {
     fontSize: responsiveFont(20),
     color: COLORS.primary,
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   contactInfo: {
     backgroundColor:COLORS.light,
@@ -129,32 +131,32 @@ const styles = StyleSheet.create({
   phoneText: {
     fontSize: responsiveFont(20),
     color: COLORS.primary,
-     fontFamily:'Roboto-Bold'
+     fontFamily:Fonts.RobotoBold,
   },
   phoneLabel: {
     fontSize: responsiveFont(17),
     color: COLORS.primary,
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   organizationInfo: {
     marginTop:responsiveHeight(0),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
 
   },
   label: {
     fontSize:responsiveFont(20),
     fontWeight: 'bold',
     color:COLORS.primary,
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   text: {
     fontSize: responsiveFont(16),
     marginTop: responsiveHeight(.5),
     color:COLORS.primary,
-     fontFamily:'Roboto-Regular',
+     fontFamily:Fonts.RobotoRegular,
   },
   workDescription: {
     marginTop: responsiveHeight(3),
-     fontFamily:'Roboto-Regular',
+     fontFamily:Fonts.RobotoRegular,
   },
 });

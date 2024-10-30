@@ -14,6 +14,7 @@ import {
   heightPercentageToDP as responsiveHeight,
   responsiveFont,
 } from 'react-native-responsive-hook';
+import Fonts from '../utilities/fonts';
 
 const contacts = [
   { id: '1', name: 'Ali Haider', time: '2 minutes ago', sim: 'SIM 2' },
@@ -136,19 +137,19 @@ const styles = StyleSheet.create({
     marginLeft: responsiveWidth(4),
     fontSize: responsiveFont(20),
     color: COLORS.primary,
-    fontFamily:'Roboto-Regular'
+    fontFamily:Fonts.RobotoRegular,
   },
   timeText: {
     color: COLORS.grey,
     fontSize: responsiveFont(15),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   simInfo: {
     color: COLORS.green,
     fontSize: responsiveFont(11),
     fontWeight: 'bold',
     marginLeft: responsiveWidth(2),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
 
   keypadContainer: {
@@ -170,9 +171,8 @@ const styles = StyleSheet.create({
   displayText: {
     fontSize: responsiveFont(24),
     color: COLORS.primary,
-    fontWeight: 'bold',
     flex: 1,
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoBold,
   },
   backspaceButton: {
     paddingHorizontal: responsiveWidth(3),
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   keypadText: {
     fontSize: responsiveFont(40),
     color: COLORS.primary,
-     fontFamily:'Roboto-Bold'
+     fontFamily:Fonts.RobotoBold,
   },
 });
 

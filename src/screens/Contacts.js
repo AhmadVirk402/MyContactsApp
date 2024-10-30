@@ -18,6 +18,7 @@ import {
   heightPercentageToDP as responsiveHeight,
   responsiveFont,
 } from 'react-native-responsive-hook';
+import Fonts from '../utilities/fonts';
 
 // Sample contact data
 const contactData = [
@@ -312,7 +313,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: responsiveFont(40),
     color: COLORS.primary,
-     fontFamily:'Roboto-Bold'
+     fontFamily:Fonts.RobotoBold
   },
   headerIcons: {
     flexDirection: 'row',
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
   filterText: {
     color: COLORS.white,
     fontSize: responsiveFont(16),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular
   },
   contactList: {
     marginBottom: responsiveHeight(-1),
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
     marginLeft: responsiveWidth(4),
     fontSize: responsiveFont(20),
     color: COLORS.primary,
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   contactImage: {
     width: responsiveWidth(10),
@@ -376,12 +377,12 @@ const styles = StyleSheet.create({
     fontSize: responsiveFont(11),
     fontWeight: 'bold',
     marginLeft: responsiveWidth(2),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   timeText: {
     color: COLORS.grey,
     fontSize: responsiveFont(15),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   contactItems: {
     flexDirection: 'row',
@@ -394,7 +395,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     flex: 1,
     marginLeft: responsiveWidth(4),
-     fontFamily:'Roboto-Regular'
+     fontFamily:Fonts.RobotoRegular,
   },
   contactIcon: {
     width: responsiveWidth(10),
